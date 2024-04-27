@@ -42,7 +42,11 @@ wxString GOStdPath::GetConfigDir() {
 }
 
 wxString GOStdPath::GetDataDir() {
-  return wxStandardPaths::Get().GetUserDataDir();
+#if wxCHECK_VERSION(3, 1, 1)
+  return wxStandardPaths::Get().GetUserDir(wxStandardPaths::Dir_Data);
+#else
+  return GetGrandOrgueSubDir(wxT("Data"));
+#endif
 }
 
 wxString GOStdPath::GetCacheDir() {
