@@ -16,6 +16,8 @@ public:
   static wxString GetBaseDir();
   static wxString GetResourceDir();
   static wxString GetConfigDir();
+  static wxString GetDataDir();
+  static wxString GetCacheDir();
   static wxString GetDocumentDir();
   static wxString GetGrandOrgueDir();
   static wxString GetGrandOrgueSubDir(const wxString &subdir);

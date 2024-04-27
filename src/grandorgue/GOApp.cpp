@@ -147,10 +147,12 @@ bool GOApp::OnInit() {
   if (!wxApp::OnInit())
     return false;
 
+  // calls SetFileLayout
+  GOStdPath::InitLocaleDir();
+
   m_config = new GOConfig(m_InstanceName);
   m_config->Load();
 
-  GOStdPath::InitLocaleDir();
   m_locale.Init(m_config->GetLanguageId());
   m_locale.AddCatalog(wxT("GrandOrgue"));
 

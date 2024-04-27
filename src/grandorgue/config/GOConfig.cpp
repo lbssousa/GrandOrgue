@@ -228,9 +228,9 @@ GOConfig::GOConfig(wxString instance)
   OrganPackagePath.setDefaultValue(
     GOStdPath::GetGrandOrgueSubDir(_("Organ packages")));
   OrganCachePath.setDefaultValue(
-    GOStdPath::GetGrandOrgueSubDir(wxT("Cache") + m_InstanceName));
+    GOStdPath::GetCacheDir() + wxFileName::GetPathSeparator() + wxT("GrandOrgue") + m_InstanceName);
   OrganSettingsPath.setDefaultValue(
-    GOStdPath::GetGrandOrgueSubDir(wxT("Data") + m_InstanceName));
+    GOStdPath::GetConfigDir() + wxFileName::GetPathSeparator() + wxT("GrandOrgue") + m_InstanceName);
   OrganCombinationsPath.setDefaultValue(
     GOStdPath::GetGrandOrgueSubDir(_("Combinations")));
   ExportImportPath.setDefaultValue(

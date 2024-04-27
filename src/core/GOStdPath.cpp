@@ -41,12 +41,24 @@ wxString GOStdPath::GetConfigDir() {
   return wxStandardPaths::Get().GetUserConfigDir();
 }
 
+wxString GOStdPath::GetDataDir() {
+  return wxStandardPaths::Get().GetUserDataDir();
+}
+
+wxString GOStdPath::GetCacheDir() {
+#if wxCHECK_VERSION(3, 1, 1)
+  return wxStandardPaths::Get().GetUserDir(wxStandardPaths::Dir_Cache);
+#else
+  return GetGrandOrgueSubDir(wxT("Cache"));
+#endif
+}
+
 wxString GOStdPath::GetDocumentDir() {
   return wxStandardPaths::Get().GetDocumentsDir();
 }
 
 wxString GOStdPath::GetGrandOrgueDir() {
-  return GetDocumentDir() + wxFileName::GetPathSeparator() + _("GrandOrgue");
+  return GetDataDir() + wxFileName::GetPathSeparator() + _("GrandOrgue");
 }
 
 wxString GOStdPath::GetGrandOrgueSubDir(const wxString &subdir) {
